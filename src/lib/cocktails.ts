@@ -15,3 +15,8 @@ export const getCocktailRandom = async () => {
     const response = await api.get("/random.php");
     return response.data.drinks[0];
 };
+
+export const CocktailSearch = async (name: string) => {
+    const response = await api.get(`/search.php?s=${name}`);
+    return response.data.drinks;
+};

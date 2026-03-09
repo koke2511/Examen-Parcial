@@ -5,12 +5,13 @@ import { Cocktail } from "@/types";
 import { AxiosError } from "axios";
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react";
+import styles from "./page.module.css";
 
 const DetailCocktail = () => {
     const { id } = useParams();
 
     const [cocktail, setCocktail] = useState <Cocktail | null>(null);
-    const [error, setError] = useState <String> ("");
+    const [error, setError] = useState <string> ("");
     const [loading, setLoading] = useState <boolean> (true);
     
     useEffect(() => {
@@ -28,9 +29,9 @@ const DetailCocktail = () => {
     }, [id]);
 
     return(
-        <div>
+        <div className="container">
             <h1>{cocktail?.strDrink}</h1>
-            <img src = {cocktail?.strDrinkThumb}/>
+            <img  className="image" src = {cocktail?.strDrinkThumb} alt={cocktail?.strDrink} />
             <br/>
             <p>{cocktail?.strCategory}</p>
             <br/>
