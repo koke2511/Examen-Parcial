@@ -27,13 +27,6 @@ const DetailCocktail = () => {
             
     }, [id]);
 
-    const ingredients = [
-        cocktail?.strIngredient1,
-        cocktail?.strIngredient2,
-        cocktail?.strIngredient3,
-        cocktail?.strIngredient4,
-    ]
-
     return(
         <div>
             <h1>{cocktail?.strDrink}</h1>

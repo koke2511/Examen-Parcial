@@ -54,3 +54,5 @@ const FuncionCocktel = () => {
   );
 
 };
+
+export default FuncionCocktel;
