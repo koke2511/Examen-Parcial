@@ -4,7 +4,6 @@ export type Cocktail = {
     idDrink: string;
     strDrink: string;
     strDrinkThumb: string;
-    strImageSource: string;
     strCategory: string;
     strAlcoholic: string;
     strGlass: string;
@@ -12,4 +11,5 @@ export type Cocktail = {
     strIngredient2: string;
     strIngredient3: string;
     strIngredient4: string;
+    strInstructions: string;
 }
