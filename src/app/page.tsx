@@ -4,21 +4,29 @@ import { Cocktail } from "@/types";
 import { useRouter } from "next/navigation";
 import { getCocktails } from "@/lib/cocktails";
 import { getCocktailRandom } from "@/lib/cocktails";
+import { AxiosError } from "axios";
 
 const FuncionCocktel = () => {
 
   const [cocktail, setCocktail] = useState<Cocktail[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState <String> ("");
 
   const router = useRouter();
 
   useEffect(() => {
-    getCocktails()
-    .then ((data) => {
-      setCocktail(data);
-      setLoading(false);
-    });
-  }, []);
+          getCocktails()
+          .then((data) => {
+              setCocktail(data)
+          })
+          .catch((e: AxiosError) => {
+              setError (e.message)
+          })
+          .finally(() => {
+              setLoading(false);
+          })
+              
+      }, []);
 
   const CocktailRandom = async () => {
     const drink = await getCocktailRandom();
@@ -29,7 +37,7 @@ const FuncionCocktel = () => {
   return(
     <div>
       <h1>Cocktails</h1>
-      <button onClick={CocktailRandom}>Cocktel aleatorio</button>
+      <button onClick={CocktailRandom}>Dime algo bonito</button>
 
       {loading && <h2>Loading...</h2>}
       <div>

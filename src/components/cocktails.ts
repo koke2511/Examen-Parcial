@@ -1,1 +1,6 @@
 'use client'
+
+
+const Cocktails = () => {
+    
+}
